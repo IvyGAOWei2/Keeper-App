@@ -3,15 +3,24 @@ import Header from "./Header";
 import Footer from "./Footer";
 import Note from "./Note";
 import CreateArea from "./CreateArea";
+import { v4 as uuidv4 } from "uuid";
+
 
 function App() {
     const [noteData, setNoteDate] = useState([]);
 
     function addNote(form){
+        const newNote = {...form, id:uuidv4()};
         setNoteDate(prev=>([
             ...prev,
-            form
-        ]))
+            newNote
+        ]));
+    }
+
+    function deleteNote(id){
+        setNoteDate(noteData.filter(item => 
+            item.id != id
+        ))
     }
   return (
     <div>
@@ -19,7 +28,7 @@ function App() {
       <CreateArea addNote={addNote} />
       {
         noteData.map((item,index) => (
-      <Note key={index} title={item.title} content={item.content} />
+      <Note key={item.id} id={item.id} title={item.title} content={item.content} deleteNote={deleteNote}/>
         ))
       }
       <Footer />
