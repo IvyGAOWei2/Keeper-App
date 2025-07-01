@@ -22,13 +22,18 @@ function App() {
             item.id != id
         ))
     }
+
+    function updateNote(id, updated) {
+        setNoteDate(prev => prev.map(note => note.id === id ? { ...note, ...updated } : note));
+    }
+
   return (
     <div>
       <Header />
       <CreateArea addNote={addNote} />
       {
         noteData.map((item,index) => (
-      <Note key={item.id} id={item.id} title={item.title} content={item.content} deleteNote={deleteNote}/>
+      <Note key={item.id} id={item.id} title={item.title} content={item.content} deleteNote={deleteNote} updateNote={updateNote}/>
         ))
       }
       <Footer />
