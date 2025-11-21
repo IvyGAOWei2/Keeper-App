@@ -2,6 +2,8 @@
 
 A simple and efficient React note-taking app. Create, edit, and delete your notes with a modern, responsive UI.
 
+- **Live demo:** https://lively-hill-089223000.3.azurestaticapps.net/
+
 ## Features
 
 - 📝 Create new notes
@@ -34,6 +36,7 @@ A simple and efficient React note-taking app. Create, edit, and delete your note
 
 ## Project Structure
 
+```markdown
 keeper-app/
 ├── public/
 ├── src/
@@ -47,3 +50,4 @@ keeper-app/
 ├── package.json
 ├── vite.config.js
 └── readme.md
+```
